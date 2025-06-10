@@ -28,6 +28,7 @@ This project involves the deployment of a **web-based student information system
 * **MySQL** database is used for storing records persistently
 * The entire application is **containerized using Docker** for easy deployment and platform independence
 * Built for secure deployment on AWS using a **three-subnet Virtual Private Cloud (VPC)** model
+![](https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20145008.png)
 
 ---
 
@@ -53,7 +54,7 @@ Here is a **rephrased and alternative version** of your **AWS VPC and Subnet Con
 ---
 
 ### **1. AWS VPC and Subnet Architecture**
-
+![]()
 #### **VPC Configuration**
 
 Start by creating a **custom Virtual Private Cloud (VPC)** with a CIDR block such as `10.0.0.0/16`. This provides an isolated network environment to host all your AWS infrastructure components securely.
@@ -79,8 +80,9 @@ Divide your VPC into three subnets to follow the three-tier architecture pattern
   * Only accessible from the application subnet for data transactions.
 
 #### **Internet & NAT Gateways**
-
+![](https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20113201%20-%20Copy.png)
 * **Internet Gateway (IGW)**
+![](https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20145107.png)
 
   * Attach an IGW to your VPC to enable internet connectivity for resources in the **public subnet**.
 * **NAT Gateway**
@@ -90,10 +92,11 @@ Divide your VPC into three subnets to follow the three-tier architecture pattern
 #### **Routing Configuration**
 
 * **Public Route Table**
-
+![](https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20113426.png)
   * Routes `0.0.0.0/0` (all internet traffic) to the **Internet Gateway**, enabling internet access for resources like the NAT Gateway and Bastion Host.
 
 * **Private Route Table**
+![](https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20144926.png)
 
   * Routes outbound internet traffic to the **NAT Gateway**, keeping the internal application and database servers protected from public exposure.
 
@@ -105,10 +108,13 @@ Here’s a **reworded and alternative version** of your **Security Groups and Ne
 ---
 
 ### **2. Security Groups and Network Access Control**
+![](https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20114341%20-%20Copy%20-%20Copy.png)
+![](https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20145234.png)
 
 #### 🔐 **Security Group – Application Tier (EC2 Instance)**
-
+![](https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20114623%20-%20Copy%20(2).png)
 * **Inbound Rules:**
+![]https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20114702%20-%20Copy%20-%20Copy.png()
 
   * Permit **HTTP traffic on port 8080** from trusted IP ranges or from the **Application Load Balancer** (if used).
   * Allow **SSH access** only from the **Bastion Host Security Group** for administrative purposes.
@@ -167,8 +173,10 @@ While Security Groups are stateful, Network ACLs offer **stateless** traffic fil
 ---
 3. EC2 Application Server Setup
 Instance Launch:
+![](https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20115528%20-%20Copy.png)
 
 Instance Launch:
+![](https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20145041.png)
 ***
 * Launch an EC2 instance in the private application subnet with an appropriate instance type (e.g., t2.micro).
 ***
@@ -187,6 +195,7 @@ Option 1: Traditional Deployment
 * Install Java JDK (version 8 or higher).
 
 * Install Apache Tomcat to host the .war application.
+![](https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20131837.png)
 
 * Upload and deploy the WAR file to the Tomcat webapps/ directory.
 ****
@@ -216,6 +225,7 @@ Option 2:
 ---
 
 ### **4. RDS MySQL Database Configuration**
+![](https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20145328.png)
 
 #### 🛠️ **Instance Provisioning**
 
@@ -287,6 +297,7 @@ docker run -d -p 8080:8080 \
 ```
 
 Replace `<your-rds-endpoint>` with the actual Amazon RDS endpoint.
+![](https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20144510%20-%20Copy.png)
 
 ---
 
@@ -304,6 +315,7 @@ For more complex setups or managing multiple containers (e.g., app + local MySQL
 
 output:
 ****
+![](https://github.com/krushna9067/AWS-Three-Tier-Hosting-for-Student-Management/blob/main/images/Screenshot%202025-06-09%20144510%20-%20Copy.png)
 Here’s an alternative **Backup and Recovery Strategy** for your AWS deployment:
 
 ### **7. Backup and Recovery Strategy (Alternative Approach)**  
