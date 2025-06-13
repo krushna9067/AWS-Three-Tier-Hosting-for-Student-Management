@@ -1,6 +1,4 @@
 # AWS Deployment Guide summary for the Student Management Web Application using VPC Three-Tier Architecture
-****
-Sure! Here's a **different version** of your **AWS Deployment Guide summary** for the **Student Management Web Application** using **VPC Three-Tier Architecture**, rewritten with varied phrasing and structure:
 
 ---
 
@@ -374,6 +372,30 @@ To ensure security, scalability, and reliability, the project is deployed on **A
 - **Scalability & Reliability:** Load-balanced application with potential **Auto Scaling** integration.  
 - **Monitoring & Backup:** Implements **AWS CloudWatch for log tracking, automated RDS snapshots, and periodic EC2 AMIs**.  
 - **Cost Optimization:** Uses AWS features such as **reserved EC2 instances, S3 storage lifecycle policies, and budgeting tools** to manage expenses.
+
+---
+
+**Project Summary:**
+
+This project involves the deployment of a Student Management System on AWS using a secure and scalable **VPC-based Three-Tier Architecture**. The architecture separates the application into **Presentation (Web)**, **Application (Business Logic)**, and **Database** layers to ensure high availability, performance, and security.
+
+Key components include:
+
+* **Amazon VPC** to isolate network resources.
+* **Public Subnet** hosting an EC2 instance with Apache/Tomcat for the web UI.
+* **Private Subnet** hosting EC2 with backend application services.
+* **RDS (MySQL/MariaDB)** in a private DB subnet for secure data storage.
+* **Security Groups and NACLs** to control traffic flow.
+* **Application Load Balancer** for traffic distribution.
+* **CloudWatch** for monitoring and logging.
+* **IAM Roles** for secure access and resource management.
+
+The system is fully automated using **Terraform**, and Docker is optionally used to containerize the application for better scalability and consistency.
+
+---
+
+
+
 
 
 
